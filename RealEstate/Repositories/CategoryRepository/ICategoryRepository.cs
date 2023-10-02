@@ -12,5 +12,7 @@ namespace RealEstate_Api.Repositories.CategoryRepository
 
         void UpdateCategory(UpdateCategoryDto categoryDto);
 
+        Task<GetByIdCategoryDto> GetByIdCategory(int id);
+
     }
 }
