@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RealEstate_Api.Dtos.AboutDtos;
+using RealEstate_Api.Dtos.AboutDetailDtos;
 using RealEstate_Api.Dtos.CategoryDtos;
-using RealEstate_Api.Repositories.AboutRepository;
+using RealEstate_Api.Repositories.AboutDetailRepository;
 using RealEstate_Api.Repositories.CategoryRepository;
 
 namespace RealEstate_Api.Controllers
@@ -50,7 +50,7 @@ namespace RealEstate_Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAbout(int id)
         {
-            var value = await _aboutDetailRepository.GetByIdAbout(id);
+            var value = await _aboutDetailRepository.GetByIdAboutDetail(id);
 
             return Ok(value);
 
