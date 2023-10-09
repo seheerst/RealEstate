@@ -5,6 +5,8 @@ using RealEstate_Api.Repositories.BottomGridRepositories;
 using RealEstate_Api.Repositories.CategoryRepository;
 using RealEstate_Api.Repositories.PopulerCityRepositories;
 using RealEstate_Api.Repositories.ProductRepository;
+using RealEstate_Api.Repositories.StepRepositories;
+using RealEstate_Api.Repositories.TestimonialRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,8 +24,8 @@ builder.Services.AddTransient<IAboutDetailRepository, AboutDetailRepository>();
 builder.Services.AddTransient<IAboutServiceRepository, AboutServiceRepository>();
 builder.Services.AddTransient<IBottomGridRepository, BottomGridRepository>();
 builder.Services.AddTransient<IPopulerCityRepository, PopulerCityRepository>();
-
-
+builder.Services.AddTransient<ITestimonialRepository, TestimonialRepository>();
+builder.Services.AddTransient<IStepRepository, StepRepository>();
 
 var app = builder.Build();
 
