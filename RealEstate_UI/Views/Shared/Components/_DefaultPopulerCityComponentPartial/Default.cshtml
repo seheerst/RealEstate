@@ -10,13 +10,13 @@
             <div class="row pt-5">
                 @foreach(var item in Model)
                 {
-                    <div class="col-lg-3 col-md-4 col-6">
+                    <div class="col-lg-3 col-md-4 col-6 mb-3">
                         <a href="#url">
                             <div class="box16">
-                                <img class="img-fluid" src="@item.ImageUrl" alt="">
+                                <img class="img-fluid" style="height:150px; width:270px" src="@item.ImageUrl" alt="">
                                 <div class="box-content">
                                     <h3 class="title mb-1">@item.Title</h3>
-                                    <span class="post">@item.Count listings</span>
+                                    <span class="post">0 ilan</span>
                                 </div>
                             </div>
                         </a>
