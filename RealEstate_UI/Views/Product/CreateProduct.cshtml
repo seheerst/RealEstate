@@ -22,7 +22,7 @@
             </div>
             <div class=" mb-3">
                 <label>Kategori</label>
-                <input asp-for="categoryName" class="form-control" />
+                @Html.DropDownListFor(x=> x.categoryID,(List<SelectListItem>)ViewBag.CategoryValues, new {@class="form-control"})
             </div>
             <div class=" mb-3">
                 <label>Fiyat</label>
