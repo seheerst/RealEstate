@@ -6,6 +6,7 @@ using RealEstate_Api.Repositories.CategoryRepository;
 using RealEstate_Api.Repositories.EmployeeRepositories;
 using RealEstate_Api.Repositories.PopulerCityRepositories;
 using RealEstate_Api.Repositories.ProductRepository;
+using RealEstate_Api.Repositories.StatisticsRepositories;
 using RealEstate_Api.Repositories.StepRepositories;
 using RealEstate_Api.Repositories.TestimonialRepositories;
 
@@ -28,6 +29,7 @@ builder.Services.AddTransient<IPopulerCityRepository, PopulerCityRepository>();
 builder.Services.AddTransient<ITestimonialRepository, TestimonialRepository>();
 builder.Services.AddTransient<IStepRepository, StepRepository>();
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
 
 var app = builder.Build();
 
