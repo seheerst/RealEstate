@@ -1,0 +1,33 @@
+﻿@model UpdateAboutDetailDto
+@{
+    ViewData["Title"] = "UpdateAboutDetail";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="col-12 mt-4">
+    <div class="bg-light rounded h-100 p-4 mx-4">
+        <h1 class="text-primary">Kategori Güncelle</h1>
+        <form action="UpdateAboutDetail" method="post">
+            <input type="hidden" asp-for="AboutID" />
+            <div class=" mb-3">
+                <label>Başlık</label>
+                <input asp-for="Title" class="form-control" />
+            </div>
+            <div class=" mb-3">
+                <label>Alt Başlık</label>
+                <input asp-for="SubTitle" class="form-control" />
+            </div>
+            <div class=" mb-3">
+                <label>İçerik 1</label>
+                <input asp-for="Description1" class="form-control" />
+            </div>
+            <div class=" mb-3">
+                <label>İçerik 2</label>
+                <input asp-for="Description2" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Kaydet</button>
+        </form>
+    </div>
+</div>
+
+
