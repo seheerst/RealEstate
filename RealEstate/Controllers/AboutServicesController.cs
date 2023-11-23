@@ -33,7 +33,7 @@ namespace RealEstate_Api.Controllers
         }
 
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteService(int id)
         {
             _aboutServiceRepository.DeleteAboutService(id);
