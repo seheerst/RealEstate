@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using RealEstate_Api.Dtos.BottomGridDtos;
 using RealEstate_Api.Dtos.PopulerCityDtos;
 using RealEstate_Api.Models.DapperContext;
 
@@ -12,14 +13,28 @@ namespace RealEstate_Api.Repositories.PopulerCityRepositories
         {
             _context = context;
         }
-        public void CreatePopulerCity(CreatePopulerCityDto populerCityDto)
+        public async void CreatePopulerCity(CreatePopulerCityDto populerCityDto)
         {
-            throw new NotImplementedException();
+            string query = "insert into PopulerCities (ImageUrl, Title) values (@imageUrl, @title)";
+            var parameters = new DynamicParameters();
+            parameters.Add("@imageUrl", populerCityDto.ImageUrl);
+            parameters.Add("@title", populerCityDto.Title);
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
 
-        public void DeletePopulerCity(int id)
+        public async void DeletePopulerCity(int id)
         {
-            throw new NotImplementedException();
+            string query = "Delete From PopulerCities Where PopulerCityID = @populerCityID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@populerCityID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
 
         public async Task<List<ResultPopulerCityDto>> GetAllAsync()
@@ -32,14 +47,32 @@ namespace RealEstate_Api.Repositories.PopulerCityRepositories
             }
         }
 
-        public Task<GetByIdPopulerCityDto> GetByIdPopulerCity(int id)
+        public async Task<GetByIdPopulerCityDto> GetByIdPopulerCity(int id)
         {
-            throw new NotImplementedException();
+            string query = "Select * From PopulerCities Where PopulerCityID= @populerCityID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@populerCityID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                var value = await connection.QueryFirstOrDefaultAsync<GetByIdPopulerCityDto>(query, parameters);
+
+                return value;
+            }
         }
 
-        public void UpdatePopulerCity(UpdatePopulerCityDto aboutDto)
+        public async void UpdatePopulerCity(UpdatePopulerCityDto populerCityDto)
         {
-            throw new NotImplementedException();
+            string query = "Update PopulerCities Set Title= @title, ImageUrl=@imageUrl where PopulerCityID = @populerCityID";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("@title", populerCityDto.Title);
+            parameters.Add("@imageUrl", populerCityDto.ImageUrl);
+
+            parameters.Add("@populerCityID", populerCityDto.PopulerCityID);
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
     }
 }
